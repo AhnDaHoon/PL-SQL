@@ -1,0 +1,20 @@
+ACCEPT VNO PROMPT '사번입력:'
+
+DECLARE
+	-- 스칼라 변수: VARCHAR2, NUMBER 등등
+
+	-- 동적 자료형: %TYPE
+	-- 데이터 베이스를 사용하다보면 자료형의 크기가 바뀌는 경우가 있는데 동적 자료형으로 선언하면 그자료형의 크기만큼 크기를 가지기 때문에 나중에 데이터가 바뀌어도 바꿀 필요가 없어진다. 
+	VEMPNO EMP.EMPNO%TYPE := &VNO;
+	VENAME EMP.ENAME%TYPE;
+	VSAL EMP.SAL%TYPE;
+
+
+BEGIN
+	SELECT empno, ename,  sal
+		INTO VEMPNO, VENAME, VSAL
+	FROM emp
+	WHERE empno = VEMPNO;
+	DBMS_OUTPUT.PUT_LINE(VEMPNO||'		'||VENAME||'		'||VSAL);
+END;
+/

@@ -1,0 +1,23 @@
+-- 부서번호: 20
+-- 부서번호 부서명 부서위치
+-- ----- ---- -----
+ACCEPT VNO PROMPT '부서번호:'
+
+DECLARE
+	VDEPTNO NUMBER := &VNO;
+	VDNAME VARCHAR2(20);
+	VLOC VARCHAR2(20);
+
+
+BEGIN
+	SELECT DEPTNO, DNAME, LOC
+		INTO VDEPTNO, VDNAME, VLOC
+	FROM DEPT
+	WHERE DEPTNO = VDEPTNO;
+
+
+	DBMS_OUTPUT.PUT_LINE('부서번호		부서명		부서위치');
+	DBMS_OUTPUT.PUT_LINE('---			---------	-----');
+	DBMS_OUTPUT.PUT_LINE(VDEPTNO||'			'||VDNAME||'	'||VLOC);
+END;
+/

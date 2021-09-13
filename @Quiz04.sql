@@ -1,0 +1,37 @@
+--사용자로부터 태어난 년도 4자리를 입력받아 어떤 띠인지를 출력하세요 
+--태어난연도입력:2021
+--2021년생인 당신은 소띠 
+
+
+ACCEPT VINPUT PROMPT '태어난 년도를 입력하세요 : '
+DECLARE
+	INPUT NUMBER := &VINPUT;
+BEGIN
+	
+	IF MOD(INPUT, 12) = 0 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 원숭이띠');
+	ELSIF MOD(INPUT, 12) = 1 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 닭띠');
+	ELSIF MOD(INPUT, 12) = 2 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 개띠');
+	ELSIF MOD(INPUT, 12) = 3 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 돼지띠');
+	ELSIF MOD(INPUT, 12) = 4 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 쥐띠');
+	ELSIF MOD(INPUT, 12) = 5 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 소띠');
+	ELSIF MOD(INPUT, 12) = 6 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 호랑이띠');
+	ELSIF MOD(INPUT, 12) = 7 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 토끼띠');
+	ELSIF MOD(INPUT, 12) = 8 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 용띠');
+	ELSIF MOD(INPUT, 12) = 9 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 뱀띠');
+	ELSIF MOD(INPUT, 12) = 10 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 말띠');
+	ELSIF MOD(INPUT, 12) = 11 THEN
+		DBMS_OUTPUT.PUT_LINE(INPUT||'년생인 당신은 양띠');
+	END IF;
+END;
+/

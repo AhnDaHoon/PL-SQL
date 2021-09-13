@@ -1,0 +1,28 @@
+
+
+PL/SQL: ORACLE DB 프로그램 언어
+
+SQL단점: 로직X, 변수X
+
+PL/SQL: SQL + 절차적 처리 기능을 추가
+
+
+DB는 SQL 처리 엔진 + PL/SQL 처리 엔진: 병렬처리
+
+특징: 블록 단위 구성
+DECLARE
+	변수선언부
+BEGIN
+	실행부
+EXCEPTION
+	예외처리부
+END;
+	종료
+
+
+PL/SQL 종류
+	1. 익명블록
+	2. FUNCTION
+	3. PROCEDURE
+	4. PACKAGE
+	5. TRIGGER

@@ -1,0 +1,17 @@
+--사용자로부터 숫자를 입력받아 홀수인지 짝수인지 판별
+--입력:100
+--100은 짝수입니다. 
+--입력:101
+--101은 홀수입니다. 
+ACCEPT VNO PROMPT '입력:'
+
+
+BEGIN
+	IF MOD(&VNO,2) = 0 THEN
+		DBMS_OUTPUT.PUT_LINE('짝수입니다.');
+	ELSE 
+		DBMS_OUTPUT.PUT_LINE('홀수입니다.');
+	END IF;
+END;
+/
+

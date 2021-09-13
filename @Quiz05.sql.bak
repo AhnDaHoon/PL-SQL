@@ -1,0 +1,24 @@
+--사용자로부터  사원번호를 입력받아 그 사원이 어떤 부서에서 근무하는지 부서명과 위치를 출력 (힌트 : SUBQUERY  OR JOIN) 
+--사원번호 : 7788
+--부서명     부서위치
+---------- ----------
+--RESEARCH DALLAS
+ACCEPT VNO PROMPT '사번입력:'
+
+DECLARE
+
+	VDNAME DEPT.DNAME%TYPE;
+	VLOC DEPT.LOC%TYPE;
+
+
+BEGIN
+	SELECT D.DNAME, D.LOC
+		INTO VDNAME, VLOC
+	FROM DEPT D, EMP E
+	WHERE E.DEPTNO = D.DEPTNO AND E.EMPNO = VEMPNO;
+	DBMS_OUTPUT.PUT_LINE(VDNAME ||'		'|| VLOC);
+END;
+/
+
+
+
