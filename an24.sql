@@ -1,0 +1,31 @@
+DECLARE
+	CURSOR C1(VNO NUMBER) IS
+		SELECT EMPNO, ENAME, SAL
+		FROM EMP
+		WHERE DEPTNO = VNO;
+
+	
+	C2 C1%ROWTYPE;
+
+BEGIN
+	
+	-- FOR 문 + CURSOR 결합 -> CURSOR FOR LOOP
+	-- FOR 변수명 IN 커서명 LOOP
+
+	-- 변수를 선언하고 사용하는 CURSOR FOR문 
+	-- FOR C2 IN C10 LOOP
+
+	-- 변수를 선언하지 않고 바로 사용가능한 CURSOR FOR문
+	FOR i IN 1..3 LOOP
+		FOR C2 IN C1(i*10) LOOP
+			
+	-- OPEN C1;
+	-- FETCH C1 INTO C2;
+			DBMS_OUTPUT.PUT_LINE(C2.EMPNO||'		'||C2.ENAME||'		'||C2.SAL);
+		END LOOP;
+	END LOOP;
+
+	-- CLOSE C1;
+	
+END;
+/

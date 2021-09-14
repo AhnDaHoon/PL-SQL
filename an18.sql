@@ -1,0 +1,18 @@
+
+ACCEPT VNO PROMPT '사원번호: :'
+
+DECLARE
+	VEMPNO			EMP.EMPNO%TYPE :=  &VNO;
+
+	-- 테이블명%ROWTYPE
+	-- 테이블의 있는 모든 변수들을 선언하지 않아도 사용할 수 있다.
+	VEMP EMP%ROWTYPE;
+
+BEGIN
+	SELECT *
+		INTO VEMP
+	FROM EMP
+	WHERE EMPNO = VEMPNO;
+	DBMS_OUTPUT.PUT_LINE(VEMP.EMPNO||'		'||VEMP.JOB||'		'||VEMP.SAL||'		'||VEMP.DEPTNO);
+END;
+/
