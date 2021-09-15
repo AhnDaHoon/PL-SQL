@@ -1,0 +1,32 @@
+-- SELECT EMPNO, ENAME, JOB, SAL, ADJ_SAL(EMPNO, 20)
+-- 각 등급당 직급 수당은 각 등급당 (1000) + 급여의 N%
+-- 수정된 급여를 리턴하는 ADJ_SAL 함수를 작성하세요
+
+-- 1. 등급당 직급수당은 100  EX) 5등급은 500추가
+-- 2. 두번째의 값을 20으로 주었다면 현재 급여의 20% EX) 급여가 3000ㅇ;리먄 20% : 600
+
+-- 3. 리턴값은 월급 + 직급수당 + 인상분
+-- 3. 3000 + 300 + 600 ==> 3900
+
+
+CREATE OR REPLACE FUNCTION ADJ_SAL(VEMPNO EMP.EMPNO%TYPE, UPSAL NUMBER)
+	RETURN  NUMBER
+IS
+	VSAL NUMBER := 0;
+	VGRADE NUMBER := 0;
+BEGIN
+
+
+
+	SELECT  E.SAL, S.GRADE*100
+		INTO VSAL, VGRADE 
+	FROM EMP E, SALGRADE S
+	WHERE E.EMPNO = VEMPNO AND E.SAL BETWEEN S.LOSAL AND S.HISAL;
+
+	
+	RETURN VSAL + VSAL*(UPSAL/100) + VGRADE;
+
+
+END;
+/
+

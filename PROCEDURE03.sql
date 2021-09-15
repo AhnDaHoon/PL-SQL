@@ -1,0 +1,26 @@
+-- 1. 1부터 10사이의 정수를 생성
+-- 2. 이 값이(1,7,3)중에 하나라면 급여를 VRATIO 비율만큼 인상
+-- 3. 이 값이(2,4,8)중에 하나라면 급여를 VRATIO 비율만큼 삭감
+-- 간단한 메세지를 출력
+
+CREATE OR REPLACE PROCEDURE LOTTO_SAL (VEMPNO EMP.EMPNO%TYPE, VRATIO NUMBER)
+
+IS
+	NUM  NUMBER := 0;
+
+BEGIN
+
+	NUM := ROUND(DBMS_RANDOM.VALUE(1,10));
+
+	IF  NUM = 1 OR NUM = 3 OR NUM = 7 THEN
+		RAISE_SAL(VEMPNO, VRATIO);
+		DBMS_OUTPUT.PUT_LINE('급여상승');
+
+	ELSIF NUM = 2 OR NUM = 4 OR NUM = 8 THEN
+		DOWN_SAL(VEMPNO, VRATIO);
+		DBMS_OUTPUT.PUT_LINE('급여하락');
+	ELSE 
+		DBMS_OUTPUT.PUT_LINE('꽝');
+	END IF;
+
+END;
